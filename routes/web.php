@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FunctionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('', [FunctionController::class, 'LoginPage'])->name('LoginPage');
+Route::get('verification', [FunctionController::class, 'Verification'])->name('Verification');
+Route::get('logout', [FunctionController::class, 'Logout'])->name('Logout');
+Route::get('dashboard', [FunctionController::class, 'Dashboard'])->name('Dashboard');
