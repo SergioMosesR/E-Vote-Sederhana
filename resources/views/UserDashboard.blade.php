@@ -137,8 +137,8 @@
     <script>
         function confirmVote(paslon, route) {
             Swal.fire({
-                title: 'Anda yakin?',
-                text: "Anda akan memberikan vote kepada " + paslon,
+                title: 'Apakah Anda yakin memilih ' + paslon + " ?",
+                // text: "Akan memberikan vote kepada " + paslon,
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',

@@ -10,7 +10,7 @@ class Token extends Seeder
     public function run()
     {
         // Generate 404 tokens
-        for ($i = 0; $i < 404; $i++) {
+        for ($i = 0; $i < 409; $i++) {
             DB::table('users')->insert([
                 'token' => $this->generateToken(), // Menggunakan fungsi generateToken untuk membuat token
                 'created_at' => now(),
@@ -23,7 +23,7 @@ class Token extends Seeder
     private function generateToken($length = 8)
     {
         // Characters available for token
-        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $characters = '1234567890';
         $charactersLength = strlen($characters);
         $token = '';
 
