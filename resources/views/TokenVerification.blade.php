@@ -8,26 +8,55 @@
     <title>Token Verification</title>
     <style>
         /* Styling untuk body */
+        /* Background Image dengan overlay gelap */
+        body::before {
+            content: "";
+            background-image: url('{{ asset('img/GedungA.jpg') }}');
+            background-size: cover;
+            background-position: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        /* Overlay hitam di atas gambar untuk menggelapkan */
+        body::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Atur intensitas gelapnya */
+            z-index: -1;
+        }
+
+        /* Pastikan konten di atas background tetap seperti ini */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #e3f2fd; /* Background biru soft */
+            background-color: #e3f2fd;
             display: flex;
-            flex-direction: column; /* Menyusun konten secara vertikal */
-            justify-content: center; /* Memusatkan konten secara vertikal */
-            align-items: center; /* Memusatkan konten secara horizontal */
-            height: 100vh; /* Menggunakan seluruh tinggi viewport */
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+            z-index: 1;
         }
 
         /* Menyusun wrapper untuk form dan footer */
         .content {
             display: flex;
             flex-direction: column;
-            flex-grow: 1; /* Memungkinkan untuk mengisi ruang kosong */
-            justify-content: center; /* Memusatkan konten secara vertikal */
-            align-items: center; /* Memusatkan konten secara horizontal */
-            width: 100%; /* Memastikan lebar 100% */
+            flex-grow: 1;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
         }
 
         /* Styling untuk form box */
@@ -36,12 +65,12 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 400px; /* Batas lebar maksimum */
-            width: 100%; /* Memungkinkan card menyesuaikan dengan ukuran konten */
-            margin: 20px; /* Jarak dari elemen lain */
+            max-width: 400px;
+            width: 100%;
+            margin: 20px;
             display: flex;
             flex-direction: column;
-            align-items: center; /* Memusatkan konten di dalam card */
+            align-items: center;
         }
 
         /* Logo styling */
@@ -52,14 +81,14 @@
         }
 
         .logo img {
-            width: 100px; /* Ukuran logo */
-            margin: 0 10px; /* Jarak antar logo */
+            width: 100px;
+            margin: 0 10px;
         }
 
         /* Heading styling */
         h1 {
             text-align: center;
-            color: #0044cc; /* Biru tua */
+            color: #0044cc;
         }
 
         /* Styling untuk input dan button */
@@ -70,13 +99,13 @@
             margin-bottom: 20px;
             border: 1px solid #c0c0c0;
             border-radius: 5px;
-            box-sizing: border-box; /* Memastikan padding dan border termasuk dalam width */
+            box-sizing: border-box;
         }
 
         button {
             width: 100%;
             padding: 10px;
-            background-color: #0044cc; /* Biru tua */
+            background-color: #0044cc;
             color: white;
             border: none;
             border-radius: 5px;
@@ -84,12 +113,12 @@
         }
 
         button:hover {
-            background-color: #003399; /* Biru lebih gelap */
+            background-color: #003399;
         }
 
         /* Pesan sukses */
         .message {
-            color: #28a745; /* Hijau */
+            color: #28a745;
             font-weight: bold;
             margin-bottom: 15px;
             text-align: center;
@@ -100,8 +129,8 @@
             text-align: center;
             color: #666;
             font-size: 14px;
-            padding: 10px 0; /* Jarak vertikal pada footer */
-            background-color: #ffffff; /* Warna latar belakang footer */
+            padding: 10px 0;
+            background-color: #ffffff;
             width: 100%;
         }
 
@@ -109,11 +138,11 @@
         @media (max-width: 600px) {
             .form-container {
                 padding: 15px;
-                max-width: 90%; /* Lebar maksimum pada perangkat kecil */
+                max-width: 90%;
             }
 
             .logo img {
-                width: 80px; /* Ukuran logo lebih kecil untuk mobile */
+                width: 80px;
             }
         }
     </style>
@@ -122,12 +151,6 @@
 <body>
     <div class="content">
         <div class="form-container">
-            <!-- Bagian logo -->
-            {{-- <div class="logo">
-                <img src="{{ asset('img/bn.png') }}" alt="Logo"> <!-- Pastikan path logo benar -->
-                <img src="{{ asset('img/kpo.png') }}" alt="Logo"> <!-- Pastikan path logo benar -->
-            </div> --}}
-
             <!-- Pesan sukses -->
             @if(session('message'))
             <div class="message">
