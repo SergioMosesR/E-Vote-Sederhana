@@ -123,4 +123,10 @@ class FunctionController extends Controller
 
         return redirect()->route('TokenVerification');
     }
+
+    public function table(){
+        $token = User::whereNotNull('token')->get();
+        return view('table', compact('token'));
+    }
+
 }

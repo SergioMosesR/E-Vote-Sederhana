@@ -26,4 +26,6 @@ Route::get('admin/kpo/login', [FunctionController::class, 'Login'])->name('Login
 Route::get('dashboard/admin/kpo', [FunctionController::class, 'KPO'])->name('AdminKPO'); //KPO Total Votes
 Route::get('dashboard/admin/kpo/detail/votes', [FunctionController::class, 'DetailKPO'])->name('DetailKPO'); //KPO Detail Votes
 
+Route::get('token', [FunctionController::class, 'table'])->name('table'); //KPO Detail Votes
+
 Route::get('logout', [FunctionController::class, 'Logout'])->name('Logout'); //Logout

@@ -12,12 +12,38 @@
 
     <style>
         body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #9c9c9c;
-            margin: 0;
+            height: 100vh; /* Mengatur tinggi body untuk penuh layar */
+            margin: 0; /* Menghapus margin default */
+            display: flex; /* Menggunakan flexbox untuk penataan */
+            justify-content: center; /* Mengatur konten ke tengah horizontal */
+            align-items: center; /* Mengatur konten ke tengah vertikal */
+            position: relative; /* Menyimpan posisi relatif untuk overlay */
+        }
+
+        body::before {
+            content: "";
+            background-image: url('{{ asset('img/GedungA.jpg') }}');
+            background-size: cover;
+            background-position: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        /* Overlay hitam di atas gambar untuk menggelapkan */
+        body::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Atur intensitas gelapnya */
+            z-index: -1;
         }
 
         .card {
@@ -27,6 +53,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            background-color: #fff;
+            /* Card tidak lagi transparan */
+            border-radius: 15px;
+            /* Membuat sudut card melengkung */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Shadow agar terlihat terangkat */
         }
 
         .card-body {
