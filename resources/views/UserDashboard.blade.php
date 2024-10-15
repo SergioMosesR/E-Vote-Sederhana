@@ -96,7 +96,8 @@
                     <img src="{{ asset('img/1.png') }}" alt="Paslon 1" class="mx-auto">
                     <div class="visi-misi">
                         <p><strong>Visi:</strong> Mewujudkan OSIS yang inklusif dan terbuka bagi seluruh siswa, serta
-                            berdaya guna dalam segala aspek, menjadi wadah untuk menyalurkan potensi dan kreativitas siswa.</p>
+                            berdaya guna dalam segala aspek, menjadi wadah untuk menyalurkan potensi dan kreativitas
+                            siswa.</p>
                         <p><strong>Misi:</strong></p>
                         <ul>
                             <li>Melibatkan siswa dan guru dalam pengambilan keputusan.</li>
@@ -107,7 +108,8 @@
                             <li>Meningkatkan kesadaran akan kebersihan lingkungan.</li>
                         </ul>
                     </div>
-                    <button class="btn btn-primary btn-vote" onclick="confirmVote('Paslon 1', '{{ route('Paslon1') }}')">Vote Paslon 1</button>
+                    <button class="btn btn-primary btn-vote"
+                        onclick="confirmVote('Paslon 1', '{{ route('Paslon1') }}')">Vote Paslon 1</button>
                 </div>
             </div>
 
@@ -117,7 +119,8 @@
                     <!-- Tambahkan mx-auto untuk membuat gambar center -->
                     <img src="{{ asset('img/2.png') }}" alt="Paslon 2" class="mx-auto">
                     <div class="visi-misi">
-                        <p><strong>Visi:</strong> Menjadikan siswa/i SMK Bagimu Negeriku berkarakter budi pekerti, berkualitas,
+                        <p><strong>Visi:</strong> Menjadikan siswa/i SMK Bagimu Negeriku berkarakter budi pekerti,
+                            berkualitas,
                             berdaya, dan berprestasi sesuai dengan nilai-nilai Pancasila.</p>
                         <p><strong>Misi:</strong></p>
                         <ul>
@@ -128,28 +131,33 @@
                             <li>Meningkatkan kedisiplinan melalui peraturan yang tegas dan tanggung jawab.</li>
                         </ul>
                     </div>
-                    <button class="btn btn-primary btn-vote" onclick="confirmVote('Paslon 2', '{{ route('Paslon2') }}')">Vote Paslon 2</button>
+                    <button class="btn btn-primary btn-vote"
+                        onclick="confirmVote('Paslon 2', '{{ route('Paslon2') }}')">Vote Paslon 2</button>
                 </div>
             </div>
         </div>
     </div>
-
     <script>
         function confirmVote(paslon, route) {
             Swal.fire({
-                title: 'Apakah Anda yakin memilih ' + paslon + " ?",
-                // text: "Akan memberikan vote kepada " + paslon,
-                icon: 'warning',
+                html: `
+                    <div style="text-align: center;">
+                        <img src="https://smkbagimunegeriku.sch.id/wp-content/uploads/2021/12/cropped-Logo-BN-512x512-1.png" alt="Second Image" style="height: 40px; margin-bottom: 10px;">
+                        <img src="https://e-voting.smakaren.sch.id/Assets/img/kpo-new.png" alt="Logo KPO" style="height: 40px; margin-bottom: 10px;">
+                    </div>
+                    <h2 style="color: #333;">Apakah Anda yakin memilih ${paslon} ?</h2>
+                `,
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Ya, Vote sekarang!',
-                cancelButtonText: 'Batal'
+                confirmButtonText: 'Ya',
+                cancelButtonText: 'Batal',
+                showCloseButton: true, // Optional: Adds a close button in the top-right corner
             }).then((result) => {
                 if (result.isConfirmed) {
                     window.location.href = route;
                 }
-            })
+            });
         }
     </script>
 
