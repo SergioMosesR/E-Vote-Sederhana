@@ -125,7 +125,7 @@ class FunctionController extends Controller
     }
 
     public function table(){
-        $token = User::whereNotNull('token')->get();
+        $token = User::whereNull('status')->get();
         return view('table', compact('token'));
     }
 
